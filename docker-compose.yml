@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  simpleweb:
+    container_name: simpleweb
+    build: .   
+    volumes:
+      - v_simpleweb:/app
+    networks:
+      - frontend
+    ports:
+      - "1555:1555"
+volumes:
+  v_simpleweb:
+networks:
+  frontend:
+    # add this if the network is already existing!
+    external: true
+  # backend:
+    
