@@ -9,6 +9,8 @@ from werkzeug.utils import secure_filename
 
 from os import getenv
 
+WS_URL = getenv("WS_URL", default="*")
+
 UPLOAD_FOLDER = 'uploads'
 
 from uiweb import Simple
@@ -299,7 +301,7 @@ def static_file(path):
 
 @fapp.after_request
 def add_headers(response):
-    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Origin"] = f"{WS_URL}"
     return response
 
 @fapp.route('/', methods=['GET', 'POST','PUT']) #main page initialization
