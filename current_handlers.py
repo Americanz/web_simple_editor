@@ -4737,7 +4737,8 @@ def modules_open(hashMap,_files=None,_data=None):
 </html>
 """
 
-    link = WS_URL+":"+str(WSPORT)
+    # link = WS_URL+":"+str(WSPORT)
+    link = WS_URL
     
     t = Template(header2)
     docdata = { 'url': link, 'uid': session["host_uid"] }
