@@ -599,7 +599,8 @@ def configuration_open(hashMap,_files=None,_data=None):
 
     filename = session["host_uid"]+".ui"
 
-    link = WS_URL+":"+str(WSPORT)+"/get_conf_text?filename="+session["host_uid"]+".ui"
+    # link = WS_URL+":"+str(WSPORT)+"/get_conf_text?filename="+session["host_uid"]+".ui"
+    link = WS_URL+"/get_conf_text?filename="+session["host_uid"]+".ui"
 
     jqr = {
             "RawConfigurationURL":link,
@@ -4736,9 +4737,8 @@ def modules_open(hashMap,_files=None,_data=None):
 </html>
 """
 
-    # link = WS_URL+":"+str(WSPORT)
-    link = WS_URL
-
+    link = WS_URL+":"+str(WSPORT)
+    
     t = Template(header2)
     docdata = { 'url': link, 'uid': session["host_uid"] }
 
