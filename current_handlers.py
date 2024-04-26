@@ -5157,7 +5157,8 @@ def user_input(hashMap,_files=None,_data=None):
 def debug_open(hashMap,_files=None,_data=None):
 
     if 'sid' in session:
-        img = qrcode.make(json.dumps({"url": WS_URL+":"+str(WSPORT)+"/debug","sid":session["sid"]}))
+        # img = qrcode.make(json.dumps({"url": WS_URL+":"+str(WSPORT)+"/debug","sid":session["sid"]}))
+        img = qrcode.make(json.dumps({"url": WS_URL+ "/debug","sid":session["sid"]}))
         buffered = BytesIO()
         img.save(buffered, format="JPEG")
         img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
