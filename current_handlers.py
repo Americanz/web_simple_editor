@@ -599,7 +599,8 @@ def configuration_open(hashMap,_files=None,_data=None):
 
     filename = session["host_uid"]+".ui"
 
-    link = WS_URL+":"+str(WSPORT)+"/get_conf_text?filename="+session["host_uid"]+".ui"
+    # link = WS_URL+":"+str(WSPORT)+"/get_conf_text?filename="+session["host_uid"]+".ui"
+    link = WS_URL+"/get_conf_text?filename="+session["host_uid"]+".ui"
 
     jqr = {
             "RawConfigurationURL":link,
@@ -4736,8 +4737,9 @@ def modules_open(hashMap,_files=None,_data=None):
 </html>
 """
 
-    link = WS_URL+":"+str(WSPORT)
-
+    # link = WS_URL+":"+str(WSPORT)
+    link = WS_URL
+    
     t = Template(header2)
     docdata = { 'url': link, 'uid': session["host_uid"] }
 
@@ -5155,7 +5157,8 @@ def user_input(hashMap,_files=None,_data=None):
 def debug_open(hashMap,_files=None,_data=None):
 
     if 'sid' in session:
-        img = qrcode.make(json.dumps({"url": WS_URL+":"+str(WSPORT)+"/debug","sid":session["sid"]}))
+        # img = qrcode.make(json.dumps({"url": WS_URL+":"+str(WSPORT)+"/debug","sid":session["sid"]}))
+        img = qrcode.make(json.dumps({"url": WS_URL+ "/debug","sid":session["sid"]}))
         buffered = BytesIO()
         img.save(buffered, format="JPEG")
         img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
